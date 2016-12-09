@@ -1,9 +1,17 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class LSStack {
+public class LSStack implements Iterable<LSStackItem> {
     ArrayList <LSStackItem> myList = new ArrayList();
 
+
+
     LSStack() {}
+
+    public Iterator<LSStackItem> iterator() {
+        
+        return null;
+    }
 
     void push(LSStackItem obj) {
         myList.add(0, obj);

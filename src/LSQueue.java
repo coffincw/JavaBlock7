@@ -20,6 +20,7 @@ public class LSQueue {
     boolean isEmpty() {
         return myQueue.size() ==0;
     }
+
     Object peek() {
         if (isEmpty())
             return null;

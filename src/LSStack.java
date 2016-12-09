@@ -10,7 +10,7 @@ public class LSStack implements Iterable<LSStackItem> {
 
     public Iterator<LSStackItem> iterator() {
         
-        return null;
+        return new LSStackIterator(this);
     }
 
     void push(LSStackItem obj) {

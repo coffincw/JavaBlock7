@@ -1,17 +1,23 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by coffincw on 12/7/16.
  */
 public class LSQueue {
-    ArrayList myQueue = new ArrayList();
+    ArrayList <LSQueueItem> myQueue = new ArrayList();
 
     LSQueue() {}
 
-    void add(Object obj) {
+    public Iterator<LSQueueItem> iterator() {
+
+        return new LSQueueIterator(this);
+    }
+
+    void add(LSQueueItem obj) {
         myQueue.add(0, obj);
     }
-    Object remove() {
+    LSQueueItem remove() {
         if (isEmpty())
             return null;
         return myQueue.remove(myQueue.size() - 1);
@@ -21,7 +27,7 @@ public class LSQueue {
         return myQueue.size() ==0;
     }
 
-    Object peek() {
+    LSQueueItem peek() {
         if (isEmpty())
             return null;
         return myQueue.get(0);
@@ -29,7 +35,7 @@ public class LSQueue {
 
     void printQueue() {
         System.out.println("---------");
-        for(Object obj : myQueue) {
+        for(LSQueueItem obj : myQueue) {
             System.out.println(obj);
         }
         System.out.println("---------");

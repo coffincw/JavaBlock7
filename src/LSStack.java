@@ -34,7 +34,7 @@ public class LSStack implements Iterable<LSStackItem> {
 
     void printStack() {
         System.out.println("---------");
-        for(Object obj : myList) {
+        for(LSStackItem obj : myList) {
             System.out.println(obj);
         }
         System.out.println("---------");

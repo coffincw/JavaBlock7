@@ -14,10 +14,14 @@ public class LSStackMain {
         // stack.printStack();
 
         Iterator<LSStackItem> myIterator = stack.iterator();
-        while (myIterator.hasNext()) {
-            LSStackItem item = myIterator.next();
+        for (LSStackItem item : stack) {
             System.out.println(item);
+
         }
+//        while (myIterator.hasNext()) {
+//            LSStackItem item = myIterator.next();
+//            System.out.println(item);
+//        }
 //        stack.pop();
 //        stack.printStack();
 //        stack.pop();
@@ -33,14 +37,17 @@ public class LSStackMain {
 
     public static void testQueue() {
         LSQueue queue = new LSQueue();
-        queue.add(new Integer(2));
-        queue.add(new Integer(-1));
-        queue.add(new Integer(10));
-        queue.printQueue();
-        queue.remove();
-        queue.printQueue();
-        queue.remove();
-        queue.printQueue();
+        System.out.println(" ");
+        queue.add(new LSQueueItem("Hi"));
+        queue.add(new LSQueueItem("There"));
+        queue.add(new LSQueueItem("1"));
+
+        Iterator<LSQueueItem> myIterator = queue.iterator();
+        while (myIterator.hasNext()) {
+            LSQueueItem item = myIterator.next();
+            System.out.println(item);
+            LSQueueIterator.currentPosition++;
+        }
     }
 
     public static void main (String[] args) {

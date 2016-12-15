@@ -6,6 +6,7 @@ import java.util.HashMap;
 public class RPNMain {
 
     static HashMap<String, RPNOperator> operatorMap;
+    static RPNStack myStack = new RPNStack();
 
     public static String readLine(String prompt) {
         System.out.println(prompt);
@@ -17,14 +18,11 @@ public class RPNMain {
     public static String[] getTokens(String input) { return input.split(" ");}
 
     public static void processRPNInput() {
-        RPNStack myStack= new RPNStack();
-
-        //myStack.registerOperator(new RPNAddOperator());
 
         String [] tokens = getTokens(readLine(": "));
         for (String t : tokens) {
             //System.out.println(t)
-            myStack.push(new RPNStackItem(t));
+            myStack.push(t);
         }
 
         myStack.printStack();
@@ -32,14 +30,25 @@ public class RPNMain {
 
     public static void main (String[] args) {
         operatorMap = new HashMap<String, RPNOperator>();
-        RPNStack myStack = new RPNStack();
-        RPNOperator addOp = new RPNAddOperator();
-        operatorMap.put("+", new RPNAddOperator());
 
-        myStack.push(new RPNStackItem(3.0));
-        myStack.push(new RPNStackItem(4.0));
-        addOp.evaluate(myStack);
-        myStack.printStack();
+        RPNOperator addOp = new RPNAddOperator();
+        RPNOperator subOp = new RPNSubtractOperator();
+        RPNOperator multiplyOp = new RPNMultiplyOperator();
+        RPNOperator divideOp = new RPNDivideOperator();
+        RPNOperator factOp = new RPNFactOperator();
+
+        operatorMap.put("+", new RPNAddOperator());
+        operatorMap.put("-", new RPNSubtractOperator());
+        operatorMap.put("*", new RPNMultiplyOperator());
+        operatorMap.put("/", new RPNDivideOperator());
+        operatorMap.put("!", new RPNFactOperator());
+
+        processRPNInput();
+
+//        myStack.push(new RPNStackItem(3.0));
+//        myStack.push(new RPNStackItem(4.0));
+//        addOp.evaluate(myStack);
+//        myStack.printStack();
 //        String test = readLine("TEST ");
 //        System.out.println(test);
        // processRPNInput();

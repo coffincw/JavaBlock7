@@ -1,9 +1,9 @@
 /**
- * Created by coffincw on 12/13/16.
+ * Created by coffincw on 12/15/16.
  */
-public class RPNAddOperator extends RPNOperator {
-    public RPNAddOperator() {
-        super("+", 2);
+public class RPNMultiplyOperator extends RPNOperator {
+    public RPNMultiplyOperator() {
+        super("*", 2);
     }
 
     public void evaluate(RPNStack stack) {
@@ -12,7 +12,7 @@ public class RPNAddOperator extends RPNOperator {
 
         double d1 = item1.getDoubleValue();
         double d2 = item2.getDoubleValue();
-        double result = d1 + d2;
+        double result = d2 * d1;
         stack.push(new RPNStackItem(result));
     }
 }

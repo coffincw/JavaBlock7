@@ -37,6 +37,7 @@ public class RPNMain {
         RPNOperator divideOp = new RPNDivideOperator();
         RPNOperator factOp = new RPNFactOperator();
         RPNOperator powOp = new RPNPowerOperator();
+        RPNOperator sqrtOp = new RPNSquareRootOperator();
 
         operatorMap.put("+", new RPNAddOperator());
         operatorMap.put("-", new RPNSubtractOperator());
@@ -44,6 +45,7 @@ public class RPNMain {
         operatorMap.put("/", new RPNDivideOperator());
         operatorMap.put("!", new RPNFactOperator());
         operatorMap.put("^", new RPNPowerOperator());
+        operatorMap.put("sqrt", new RPNSquareRootOperator());
 
         processRPNInput();
 

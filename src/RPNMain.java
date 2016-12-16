@@ -36,12 +36,14 @@ public class RPNMain {
         RPNOperator multiplyOp = new RPNMultiplyOperator();
         RPNOperator divideOp = new RPNDivideOperator();
         RPNOperator factOp = new RPNFactOperator();
+        RPNOperator powOp = new RPNPowerOperator();
 
         operatorMap.put("+", new RPNAddOperator());
         operatorMap.put("-", new RPNSubtractOperator());
         operatorMap.put("*", new RPNMultiplyOperator());
         operatorMap.put("/", new RPNDivideOperator());
         operatorMap.put("!", new RPNFactOperator());
+        operatorMap.put("^", new RPNPowerOperator());
 
         processRPNInput();
 

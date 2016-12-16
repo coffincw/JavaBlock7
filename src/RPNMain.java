@@ -38,6 +38,13 @@ public class RPNMain {
         RPNOperator factOp = new RPNFactOperator();
         RPNOperator powOp = new RPNPowerOperator();
         RPNOperator sqrtOp = new RPNSquareRootOperator();
+        RPNOperator absOp = new RPNAbsOperator();
+        RPNOperator cosOp = new RPNCosineOperator();
+        RPNOperator acosOp = new RPNINVCosineOperator();
+        RPNOperator sinOp = new RPNSineOperator();
+        RPNOperator asinOp = new RPNINVSineOperator();
+        RPNOperator tanOp = new RPNTangentOperator();
+        RPNOperator atanOp = new RPNINVTangentOperator();
 
         operatorMap.put("+", new RPNAddOperator());
         operatorMap.put("-", new RPNSubtractOperator());
@@ -46,6 +53,15 @@ public class RPNMain {
         operatorMap.put("!", new RPNFactOperator());
         operatorMap.put("^", new RPNPowerOperator());
         operatorMap.put("sqrt", new RPNSquareRootOperator());
+        operatorMap.put("||", new RPNAbsOperator());
+        operatorMap.put("acos", new RPNINVCosineOperator());
+        operatorMap.put("cos", new RPNCosineOperator());
+        operatorMap.put("sin", new RPNSineOperator());
+        operatorMap.put("asin", new RPNINVSineOperator());
+        operatorMap.put("tan", new RPNTangentOperator());
+        operatorMap.put("atan", new RPNINVTangentOperator());
+
+
 
         processRPNInput();
 

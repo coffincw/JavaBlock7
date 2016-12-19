@@ -6,6 +6,8 @@ import java.util.HashMap;
 public class RPNMain {
 
     static HashMap<String, RPNOperator> operatorMap;
+    static HashMap<String, Double> variableMap;
+
     static RPNStack myStack = new RPNStack();
 
     public static String readLine(String prompt) {
@@ -30,21 +32,7 @@ public class RPNMain {
 
     public static void main (String[] args) {
         operatorMap = new HashMap<String, RPNOperator>();
-
-        RPNOperator addOp = new RPNAddOperator();
-        RPNOperator subOp = new RPNSubtractOperator();
-        RPNOperator multiplyOp = new RPNMultiplyOperator();
-        RPNOperator divideOp = new RPNDivideOperator();
-        RPNOperator factOp = new RPNFactOperator();
-        RPNOperator powOp = new RPNPowerOperator();
-        RPNOperator sqrtOp = new RPNSquareRootOperator();
-        RPNOperator absOp = new RPNAbsOperator();
-        RPNOperator cosOp = new RPNCosineOperator();
-        RPNOperator acosOp = new RPNINVCosineOperator();
-        RPNOperator sinOp = new RPNSineOperator();
-        RPNOperator asinOp = new RPNINVSineOperator();
-        RPNOperator tanOp = new RPNTangentOperator();
-        RPNOperator atanOp = new RPNINVTangentOperator();
+        variableMap = new HashMap<String, Double>();
 
         operatorMap.put("+", new RPNAddOperator());
         operatorMap.put("-", new RPNSubtractOperator());
@@ -60,6 +48,8 @@ public class RPNMain {
         operatorMap.put("asin", new RPNINVSineOperator());
         operatorMap.put("tan", new RPNTangentOperator());
         operatorMap.put("atan", new RPNINVTangentOperator());
+        operatorMap.put("%", new RPNModuloOperator());
+        operatorMap.put("=", new RPNAssignmentOperator());
 
 
 

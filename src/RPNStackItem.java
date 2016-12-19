@@ -14,6 +14,20 @@ public class RPNStackItem extends LSStackItem {
 
 
     double getDoubleValue() {
-        return Double.valueOf(value);
+        try {
+            double d = Double.valueOf(value);
+            return d;
+            // some more stuff here
+        }
+        catch (NumberFormatException ex) {
+            if (RPNMain.variableMap.containsKey(value)) {
+                Double dop = RPNMain.variableMap.get(value);
+                return dop.doubleValue();
+            } else {
+                System.out.println("Invalid token: " + value);
+                System.exit(-1);
+            }
+        }
+        return -1;
     }
 }

@@ -50,6 +50,7 @@ public class RPNMain {
         operatorMap.put("atan", new RPNINVTangentOperator());
         operatorMap.put("%", new RPNModuloOperator());
         operatorMap.put("=", new RPNAssignmentOperator());
+        operatorMap.put("<", new RPNLessThanOperator());
 
 
 

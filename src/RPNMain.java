@@ -20,14 +20,21 @@ public class RPNMain {
     public static String[] getTokens(String input) { return input.split(" ");}
 
     public static void processRPNInput() {
+        boolean input = true;
+        while (input) {
+            String[] tokens = getTokens(readLine(": "));
+            for (String t : tokens) {
+                //System.out.println(t)
+                myStack.push(t);
+            }
 
-        String [] tokens = getTokens(readLine(": "));
-        for (String t : tokens) {
-            //System.out.println(t)
-            myStack.push(t);
+            myStack.printStack();
+            String inputline = readLine("exit?");
+            inputline = inputline.toLowerCase();
+            if (inputline.equals("yes")) {
+                input = false;
+            }
         }
-
-        myStack.printStack();
     }
 
     public static void main (String[] args) {
@@ -51,6 +58,12 @@ public class RPNMain {
         operatorMap.put("%", new RPNModuloOperator());
         operatorMap.put("=", new RPNAssignmentOperator());
         operatorMap.put("<", new RPNLessThanOperator());
+        operatorMap.put(">", new RPNGreaterThanOperator());
+        operatorMap.put("&&", new RPNAndOperator());
+        operatorMap.put("||", new RPNOrOperator());
+        operatorMap.put("==", new RPNEqualsOperator());
+        operatorMap.put("--", new RPNUnaryMinusOperator());
+        operatorMap.put("quad", new RPNQuadOperator());
 
 
 

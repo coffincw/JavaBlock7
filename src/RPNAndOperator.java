@@ -1,10 +1,8 @@
 /**
- * Created by coffincw on 12/16/16.
+ * Created by coffincw on 12/21/16.
  */
-public class RPNPowerOperator extends RPNOperator {
-    public RPNPowerOperator() {
-        super("^", 2);
-    }
+public class RPNAndOperator extends RPNOperator {
+    public RPNAndOperator() { super("&&", 2);  }
 
     public void evaluate(RPNStack stack) {
         RPNStackItem item1 = stack.pop();
@@ -12,7 +10,12 @@ public class RPNPowerOperator extends RPNOperator {
 
         double d1 = item1.getDoubleValue();
         double d2 = item2.getDoubleValue();
-        double result = Math.pow(d2, d1);
+        double result;
+        if (d1 == d2) {
+            result = 1;
+        } else {
+            result = 0;
+        }
         stack.push(new RPNStackItem(result));
     }
 }
